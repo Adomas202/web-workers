@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/dracula.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+				<h3>Table of contents</h3>
+				<ul>
+					<li>Adomas - Intro</li>
+					<li>Tomas - Real world examples</li>
+					<li>Pijus - Jump Task use case</li>
+				</ul>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h2 style="margin-top: 20px;">Problem?</h2>
+				<ul>
+					<li>Javascript - single threaded language</li>
+					<li>Long-running or computationally expensive tasks can block the UI</li>
+					<li>Makes the web page less responsive</li>
+					<li>Reduces SEO rating</li>
+				</ul>
+				<div class="r-hstack justify-center">
+					<div data-id="box1" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+					<div data-id="box2" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+					<div data-id="box3" style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;"></div>
+				</div>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div class="r-hstack justify-center">
+					<div data-id="box1" data-auto-animate-delay="0" style="background: cyan; width: 150px; height: 100px; margin: 10px;"></div>
+					<div data-id="box2" data-auto-animate-delay="0.1" style="background: magenta; width: 150px; height: 100px; margin: 10px;"></div>
+					<div data-id="box3" data-auto-animate-delay="0.2" style="background: yellow; width: 150px; height: 100px; margin: 10px;"></div>
+				</div>
+				<h2 style="margin-top: 20px;">Solution -> Web Workers</h2>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div class="r-stack">
+					<div data-id="box1" style="background: cyan; width: 300px; height: 300px; border-radius: 200px;"></div>
+					<div data-id="box2" style="background: magenta; width: 200px; height: 200px; border-radius: 200px;"></div>
+					<div data-id="box3" style="background: yellow; width: 100px; height: 100px; border-radius: 200px;"></div>
+				</div>
+				<h2>Web workers benefits</h2>
+				<div style="display: flex">
+					<ul>
+						<li>Improved Performance</li>
+						<li>Parallel Processing</li>
+						<li>Background Execution</li>
+					</ul>
+					<ul>
+						<li>Responsive User Interface</li>
+						<li>Preventing UI Freezes</li>
+						<li>Concurrency and Multithreading</li>
+					</ul>
+				</div>
+				<aside class="notes">
+					1. ⚡️ Improved Performance: Web Workers allow CPU-intensive operations to run in the background, preventing them from blocking the main thread. This ensures that the user interface remains smooth and responsive, even during demanding tasks.
+
+					2. 🔄 Parallel Processing: With Web Workers, multiple tasks can be executed simultaneously in separate threads. This enables parallel processing, speeding up the execution of complex calculations or data-intensive operations.
+
+					3. 🛠 Background Execution: Web Workers handle tasks independently, running in the background without interfering with the main thread. This means that time-consuming operations, such as network requests or heavy computations, can be performed without affecting the user experience.
+
+					4. 🚀 Responsive User Interface: By offloading tasks to Web Workers, the main thread is free to handle user interactions and respond promptly to user input. This ensures a smooth and interactive user interface, even during resource-intensive operations.
+
+					5. ⛔️ Preventing UI Freezes: Without Web Workers, lengthy operations executed on the main thread can cause the UI to freeze, leading to a poor user experience. Web Workers eliminate this issue by keeping heavy computations separate from the main thread.
+
+					6. 🔄 Concurrency and Multithreading: Web Workers leverage the power of concurrency and multithreading to utilize multiple processor cores effectively. This allows for efficient utilization of available resources, enhancing the overall performance of the application.
+				  </aside>
+			</section>
+
+			<section>
+				<h2>Types of web workers</h2>
+				<ul>
+					<li>Decicated workers</li>
+					<li>Shared workers</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>Dedicated workers</h2>
+				<ul>
+					<li>The code must be contained in a separate file</li>
+					<li>Communication via message passing</li>
+					<li>Event listeners to catch messages between source and worker</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Shared workers</h3>
+				<ul>
+					<li>Workers that can be used by multiple scripts running as long as they are in the same domain</li>
+					<li>Shared workers are more complicated than dedicated workers</li>
+					<li>Scripts must communicate via an active port</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Use cases of web workers</h3>
+				<ul>
+					<li>Prefetching and/or caching data for later use</li>
+					<li>Code syntax highlighting or other real-time text formatting</li>
+					<li>Spell checker</li>
+					<li>Analyzing video or audio data</li>
+					<li>Background 1/0 or polling of web services</li>
+					<li>Processing large arrays or humungous JSON responses</li>
+					<li>Image filtering in canvas</li>
+					<li>Updating many rows of a local web database</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>We workers support</h3>
+				<img src="./assets/support.png"  height="100%" width="100%">
+			</section>
+
+			<section>
+				<h3>Web workers limitations</h3>
+				<ul>
+					<li>Cannot directly manipulate the DOM</li>
+					<li>Has limited access to methods and properties of the window object</li>
+					<li>Cannot be run directly from the filesystem. It can only be run via a server</li>
+				</ul>
+			</section>
+
+			<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
+				<h2>Web or service workers?</h2>
+			</section>
+
+			<section>
+				<h3>Service workers</h3>
+				<ul>
+					<li>Service workers allow users to detect network requests via the fetch event and to listen for Push API events in the background via the push event.</li>
+					<li>A web worker can’t do this.</li>
+				</ul>
+			</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
